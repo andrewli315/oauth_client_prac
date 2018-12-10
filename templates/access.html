@@ -1,0 +1,56 @@
+{%  extends "bootstrap/base.html" %}
+
+
+{% block head %}
+{{super()}}
+<link rel="shortcut icon" href="{{url_for('static',filename='images/icon.png')}}" type="image/x-icon">
+<link rel="icon" href="{{url_for('static',filename='images/icon.png')}}" type="image/x-icon">
+
+{% endblock %}
+{% block title %}
+OAuth Practice
+{% endblock %}
+
+{% block navbar%}
+<header>
+    <div class="navbar navbar-inverse" role=navigation" id="navbarheader">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">OAuth</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+{% endblock %}
+{% block content %}
+
+<div class="text-center">
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <main role="main" class="inner cover">
+		
+		<form action='/access' method='get'>
+			<h4>Access token</h4>
+			<input style="width:360px" name='access_token' value={{token}}>
+			<h4>Refresh token</h4>
+			<input style="width:360px" name='refresh_token' value={{refresh_token}} disabled>
+			<br>
+			<input id="access" type="submit" class="btn btb-info" value="access"> </a>
+		</form>
+    </main>
+    </div>
+</div>
+{% block footer %}
+<footer class="footer" >
+   <div class="footer navbar-fixed-bottom text-center">
+        <p class="text-muted">&copy; 2018 prlab,CSC is Good</p>
+    </div>
+</footer>
+{% endblock footer %}
+{% endblock content %}
+
+{% block scripts %}
+{{super()}}
+<script>
+</script>
+{% endblock %}
+
